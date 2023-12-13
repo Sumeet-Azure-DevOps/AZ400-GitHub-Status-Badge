@@ -1,0 +1,21 @@
+﻿name: PipelineWorkflow
+
+on:
+	push:
+		branches:
+			- main
+	pull-request:
+		branches:
+			- main
+
+jobs:
+	build:
+		name: Azure Pipeline
+		runs-on: ubuntu-latest
+		steps:
+		- name: Azure Pipeline Action
+		  uses: Azure/pipelines@v1
+		  with:
+			azure-devops-project-url: https://dev.azure.com/sumeetsinghdev/Agile%20Project%20AZ-305
+			azure-pipeline-name: 'Sumeet-Azure-DevOps.AZ400-GitHub-Status-Badge'
+			azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
